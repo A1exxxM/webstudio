@@ -1,0 +1,37 @@
+.about {
+    height: 674px;
+    padding: 125px 0;
+    &__wrapper {
+        margin: 0 auto;
+        margin-top: 124px;
+        width: 1060px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 256px;
+        height: 200px;
+        &-title {
+            font-size: 20px;
+            line-height: 22px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: #212121;
+            margin-bottom: 0;
+            margin-top: 15px;
+        }
+        &-descr {
+            font-size: 14px;
+            line-height: 22px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: #212121;
+            text-align: center;
+        }
+    }
+}

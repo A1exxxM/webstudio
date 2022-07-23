@@ -1,0 +1,60 @@
+.promo {
+    height: calc(100vh  - 120px);
+    padding: 200px 0 76px 0;
+    background: url('../../../img/promo_bg.png') center (center/cover) no-repeat;
+    &__title {
+        font-size: 60px;
+        line-height: 22px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: #fff;
+        text-align: center;
+    }
+    &__subtitle {
+        font-size: 22px;
+        line-height: 22px;
+        font-weight: 400;
+        letter-spacing: 0.05em;
+        margin-top: 60px;
+        text-align: center;
+        color: #fff;
+    }
+    &__wrapper {
+        margin: 0 auto;
+        margin-top: 200px;
+        display: flex;
+        width: 465px;
+        justify-content: space-between;
+    }
+    &__button {
+        width: 220px;
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color:#fff;
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+    &__services {
+        border: 3px solid #f8f8f8;
+        background-color: rgba(28,28,28,0);
+    }
+    &__hire {
+        background-color: #00897b;
+        border: 3px solid #00897b;
+    }
+    &__icon {
+        font-size: 40px;
+        letter-spacing: 0.05em;
+        color: #ffffff;
+        display: block;
+        width: 32px;
+        margin: 0 auto;
+        margin-top: 100px;
+        cursor: pointer;
+    }
+    
+}
