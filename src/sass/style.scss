@@ -1,5 +1,5 @@
 @import 'libs/bootstrap-reboot.min';
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 @import 'base/variables';
 @import 'base/mixins';
 @import 'base/title';
@@ -11,6 +11,10 @@
 @import 'blocks/about/about__media';
 @import 'blocks/services/services';
 @import 'blocks/services/services__media';
+@import 'blocks/works/works';
+@import 'blocks/works/works__media';
+@import 'blocks/price/price';
+@import 'blocks/price/price__media';
 
 * {
     font-family: 'Poppins', sans-serif;
