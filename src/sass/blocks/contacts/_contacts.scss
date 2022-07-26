@@ -1,0 +1,116 @@
+.contacts {
+    height: 1254px;
+    background-color: #212121;
+    padding: 128px 0 110px 0;
+    &__title, &__subtitle {
+        color: #fff;
+    }
+    &__wrapper {
+        margin: 0 auto;
+        margin-top: 101px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 955px;
+    }
+    &__item {
+        &-round {
+            margin: 0 auto;
+            width: 105px;
+            height: 105px;
+            background-color: #3949ab;
+            border-radius: 100%;
+            font-size: 55px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        &-descr {
+            margin-top: 39px;
+            font-size: 19px;
+            line-height: 28px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-align: center;
+        }
+        &-link {
+            color:#fff;
+            &:hover {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+    &__form {
+        margin-top: 84px;
+        display: grid;
+        grid-template: 84px 323px 70px/repeat(2, 500px);
+        gap: 31px;
+        justify-content: center;
+    }
+    &__input {
+        width: 500px;
+        height: 84px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        input {
+            width: 100%;
+            height: 100%;
+            padding: 35px 21px;
+            &::placeholder {
+                opacity: 0.8;
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                color: #212121;
+            }
+        }
+    }
+    &__name {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    } 
+    &__email {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+    }
+    &__textarea {
+        grid-column: 1 / 3;
+        grid-row-start: 2;
+        width: 1031px;
+        height: 323px;
+        border-radius: 10px;
+        overflow: hidden;
+        textarea {
+            width: 100%;
+            height: 100%;
+            resize: none;
+            padding: 29px 20px;
+            &::placeholder {
+                opacity: 0.8;
+                font-size: 20px;
+                line-height: 28px;
+                font-weight: 500;
+                letter-spacing: 0.05em;
+                color: #212121;
+            }
+        }
+    }
+    &__submit {
+        width: 220px;
+        height: 70px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        grid-column-start: 2;
+        grid-row-start: 3;
+        justify-self: end;
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        color: #212121;
+    }
+}

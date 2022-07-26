@@ -1,0 +1,12 @@
+.footer {
+    height: 65px;
+    &__descr {
+        font-size: 20px;
+        line-height: 22px;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        color: #212121;
+        text-align: center;
+        margin-top: 40px;
+    }
+}
