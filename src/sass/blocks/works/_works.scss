@@ -25,6 +25,10 @@
         &:nth-child(1) {
             width: 100px;
         }
+        &-active {
+            background-color: #00897b;
+            color: #fff;
+        }
     }
     &__wrapper {
         margin-top: 119px;
@@ -39,6 +43,7 @@
         height: 370px;
         overflow: hidden;
         margin-bottom: 30px;
+        cursor: pointer;
         &:nth-child(4), &:nth-child(5), &:nth-child(6) {
             margin-bottom: 0;
         }
@@ -62,5 +67,12 @@
         letter-spacing: 0.05em;
         color: #fff;
         text-transform: uppercase;
+    }
+    &__block {
+        background-color: #000000;
+        opacity: 0.3;
+        width: 100%;
+        height: 100%;
+        transition: 0.4s all;
     }
 }

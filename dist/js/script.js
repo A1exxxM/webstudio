@@ -86,14 +86,235 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./src/js/about.js":
+/*!*************************!*\
+  !*** ./src/js/about.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function about() {
+  const wrapperAbout = document.querySelector('.about__wrapper');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= 800) {
+      wrapperAbout.classList.add('about__wrapper-active');
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (about);
+
+/***/ }),
+
+/***/ "./src/js/header.js":
+/*!**************************!*\
+  !*** ./src/js/header.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function header() {
+  const wrapper = document.querySelector('.header__wrapper');
+  wrapper.style.display = 'none';
+  setTimeout(function () {
+    wrapper.style.display = '';
+    wrapper.classList.add('animate__animated', 'animate__fadeInDown');
+  }, 1000);
+
+  function scrollToBlock(selector, point) {
+    selector.addEventListener('click', e => {
+      e.preventDefault();
+      point.scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  }
+
+  const aboutBlock = document.querySelector('#about'),
+        aboutPoint = document.querySelector('.about'),
+        serviceBlock = document.querySelector('#servicing'),
+        servicePoint = document.querySelector('.services'),
+        portfolioBlock = document.querySelector('#portfolio'),
+        portfolioPoint = document.querySelector('.works'),
+        blogBlock = document.querySelector('#blog'),
+        blogPoint = document.querySelector('.blog'),
+        contactsBlock = document.querySelector('#contacts'),
+        contactsPoint = document.querySelector('.contacts'),
+        teamBlock = document.querySelector('#team'),
+        teamPoint = document.querySelector('.team');
+  scrollToBlock(aboutBlock, aboutPoint);
+  scrollToBlock(serviceBlock, servicePoint);
+  scrollToBlock(portfolioBlock, portfolioPoint);
+  scrollToBlock(blogBlock, blogPoint);
+  scrollToBlock(contactsBlock, contactsPoint);
+  scrollToBlock(teamBlock, teamPoint);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (header);
+
+/***/ }),
+
 /***/ "./src/js/main.js":
 /*!************************!*\
   !*** ./src/js/main.js ***!
   \************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-window.addEventListener('DOMContentLoaded', () => {});
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./about */ "./src/js/about.js");
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./src/js/header.js");
+/* harmony import */ var _promo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./promo */ "./src/js/promo.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services */ "./src/js/services.js");
+/* harmony import */ var _works__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./works */ "./src/js/works.js");
+
+
+
+
+
+window.addEventListener('DOMContentLoaded', () => {
+  Object(_header__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  Object(_promo__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_about__WEBPACK_IMPORTED_MODULE_0__["default"])();
+  Object(_services__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_works__WEBPACK_IMPORTED_MODULE_4__["default"])();
+});
+
+/***/ }),
+
+/***/ "./src/js/promo.js":
+/*!*************************!*\
+  !*** ./src/js/promo.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function promo() {
+  const title = document.querySelector('.promo__title'),
+        subtitle = document.querySelector('.promo__subtitle');
+  title.style.display = 'none';
+  subtitle.style.display = 'none';
+  setTimeout(function () {
+    title.style.display = '';
+    title.classList.add('animate__animated', 'animate__fadeInDown');
+    subtitle.style.display = '';
+    subtitle.classList.add('animate__animated', 'animate__fadeInDown');
+  }, 1700);
+  const wrapper = document.querySelector('.promo__wrapper'),
+        icon = document.querySelector('.promo__icon');
+  wrapper.style.display = 'none';
+  icon.style.display = 'none';
+  setTimeout(function () {
+    wrapper.style.display = '';
+    wrapper.classList.add('animate__animated', 'animate__fadeInDown');
+    icon.style.display = '';
+    icon.classList.add('animate__animated', 'animate__fadeInDown');
+  }, 2500);
+
+  function scrollToBlock(selector, point) {
+    selector.addEventListener('click', e => {
+      e.preventDefault();
+      point.scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+  }
+
+  const servicesBtn = document.querySelector('.promo__services'),
+        hireBtn = document.querySelector('.promo__hire'),
+        servicesPoint = document.querySelector('.services'),
+        hirePoint = document.querySelector('.price'),
+        iconPoint = document.querySelector('.about');
+  scrollToBlock(servicesBtn, servicesPoint);
+  scrollToBlock(hireBtn, hirePoint);
+  scrollToBlock(icon, iconPoint);
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (promo);
+
+/***/ }),
+
+/***/ "./src/js/services.js":
+/*!****************************!*\
+  !*** ./src/js/services.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function services() {
+  const btns = document.querySelectorAll('.services__item-btn'),
+        imgPhone = document.querySelectorAll('.services__phone');
+  btns.forEach(btn => {
+    btn.addEventListener('mouseover', e => {
+      e.target.parentNode.classList.add('services__item-active');
+      e.target.classList.add('services__item-btn_active');
+      imgPhone.forEach(img => {
+        if (e.target.parentNode.contains(img)) {
+          img.src = 'icons/smartphone.png';
+        }
+      });
+    });
+    btn.addEventListener('mouseout', e => {
+      e.target.parentNode.classList.remove('services__item-active');
+      e.target.classList.remove('services__item-btn_active');
+      imgPhone.forEach(img => {
+        if (e.target.parentNode.contains(img)) {
+          img.src = 'icons/smartphone_main.png';
+        }
+      });
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (services);
+
+/***/ }),
+
+/***/ "./src/js/works.js":
+/*!*************************!*\
+  !*** ./src/js/works.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function worksTab() {
+  const tabs = document.querySelectorAll('.works__btn');
+
+  function hideTab() {
+    tabs.forEach(tab => {
+      tab.classList.remove('works__btn-active');
+    });
+  }
+
+  function showTab() {
+    let i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    tabs[i].classList.add('works__btn-active');
+  }
+
+  hideTab();
+  showTab();
+  const itemWorks = document.querySelectorAll('.works__item');
+  const titles = ['Hand Watch', 'One Day Pass', 'Modal T-shirt', 'Container', 'Discovery', 'The Kitchens'];
+  const subtitles = ['Web Design', 'UI/UX Design', 'Mockups'];
+  itemWorks.forEach(item => {
+    item.addEventListener('mouseover', e => {
+      const block = document.createElement('div');
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (worksTab);
 
 /***/ })
 

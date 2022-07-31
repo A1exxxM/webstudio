@@ -8,6 +8,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        opacity: 0;
+        transition: 0.8s all;
+        &-active {
+            opacity: 1;
+        }
     }
     &__item {
         display: flex;
