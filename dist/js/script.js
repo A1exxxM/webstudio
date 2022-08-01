@@ -169,9 +169,11 @@ function header() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./about */ "./src/js/about.js");
 /* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./src/js/header.js");
-/* harmony import */ var _promo__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./promo */ "./src/js/promo.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services */ "./src/js/services.js");
-/* harmony import */ var _works__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./works */ "./src/js/works.js");
+/* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./price */ "./src/js/price.js");
+/* harmony import */ var _promo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./promo */ "./src/js/promo.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services */ "./src/js/services.js");
+/* harmony import */ var _works__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./works */ "./src/js/works.js");
+
 
 
 
@@ -179,11 +181,41 @@ __webpack_require__.r(__webpack_exports__);
 
 window.addEventListener('DOMContentLoaded', () => {
   Object(_header__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  Object(_promo__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_promo__WEBPACK_IMPORTED_MODULE_3__["default"])();
   Object(_about__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  Object(_services__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  Object(_works__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_services__WEBPACK_IMPORTED_MODULE_4__["default"])();
+  Object(_works__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_price__WEBPACK_IMPORTED_MODULE_2__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/price.js":
+/*!*************************!*\
+  !*** ./src/js/price.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function price() {
+  const priceBtn = document.querySelectorAll('.price__item-order');
+  priceBtn.forEach(btn => {
+    btn.addEventListener('mouseover', e => {
+      if (btn == e.target) {
+        btn.classList.add('price__item-order_active');
+      }
+    });
+    btn.addEventListener('mouseout', e => {
+      if (btn == e.target) {
+        btn.classList.remove('price__item-order_active');
+      }
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (price);
 
 /***/ }),
 
@@ -290,6 +322,7 @@ function services() {
 __webpack_require__.r(__webpack_exports__);
 function worksTab() {
   const tabs = document.querySelectorAll('.works__btn');
+  const itemWorks = document.querySelectorAll('.works__item');
 
   function hideTab() {
     tabs.forEach(tab => {
@@ -304,12 +337,72 @@ function worksTab() {
 
   hideTab();
   showTab();
-  const itemWorks = document.querySelectorAll('.works__item');
+
+  function filterTabs(elem) {
+    itemWorks.forEach(item => {
+      if (elem.dataset.type !== item.dataset.type) {
+        item.style.display = 'none';
+      }
+
+      if (elem.dataset.type == "all") {
+        item.style.display = '';
+      }
+    });
+  }
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => {
+      hideTab();
+      showTab(i);
+      itemWorks.forEach(item => {
+        item.style.display = '';
+      });
+      filterTabs(tab);
+    });
+  });
   const titles = ['Hand Watch', 'One Day Pass', 'Modal T-shirt', 'Container', 'Discovery', 'The Kitchens'];
   const subtitles = ['Web Design', 'UI/UX Design', 'Mockups'];
-  itemWorks.forEach(item => {
+  itemWorks.forEach((item, i) => {
+    const block = document.createElement('div'),
+          titleBlock = document.createElement('div'),
+          subtitleBlock = document.createElement('div');
     item.addEventListener('mouseover', e => {
-      const block = document.createElement('div');
+      block.classList.add('works__block');
+      titleBlock.classList.add('works__block-title');
+      titleBlock.textContent = titles[i];
+      subtitleBlock.classList.add('works__block-subtitle');
+
+      if (item.dataset.type == "ui") {
+        subtitleBlock.textContent = subtitles[1];
+      } else if (item.dataset.type == "web") {
+        subtitleBlock.textContent = subtitles[0];
+      } else if (item.dataset.type == "mock") {
+        subtitleBlock.textContent = subtitles[2];
+      } else {
+        subtitleBlock.textContent = "Error";
+      }
+
+      block.append(titleBlock);
+      block.append(subtitleBlock);
+      e.target.parentNode.append(block);
+    });
+    item.addEventListener('mouseout', e => {
+      block.classList.remove('works__block');
+      e.target.parentNode.removeChild(block);
+    });
+  });
+  const btnFull = document.querySelector('.works__full');
+  btnFull.addEventListener('click', () => {
+    itemWorks.forEach(item => {
+      if (item.classList.contains('works__item-hide')) {
+        item.classList.remove('works__item-hide');
+        item.classList.add('works__item-show');
+        btnFull.textContent = 'Hide Part';
+      } else if (item.classList.contains('works__item-show')) {
+        item.classList.remove('works__item-show');
+        item.classList.add('works__item-hide');
+        btnFull.textContent = 'View All';
+      }
     });
   });
 }
