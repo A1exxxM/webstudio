@@ -108,6 +108,74 @@ function about() {
 
 /***/ }),
 
+/***/ "./src/js/blog.js":
+/*!************************!*\
+  !*** ./src/js/blog.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function blog() {
+  const blogItems = document.querySelectorAll('.blog__item');
+  blogItems.forEach(item => {
+    item.style.transition = '1.3s all';
+    item.style.opacity = '0';
+  });
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= 6700) {
+      blogItems.forEach(item => {
+        item.style.opacity = '1';
+      });
+    }
+  });
+  const blogBtn = document.querySelector('.blog__btn');
+  blogBtn.addEventListener('click', () => {
+    blogItems.forEach(item => {
+      if (item.classList.contains('blog__item-hide')) {
+        item.classList.remove('blog__item-hide');
+        item.classList.add('blog__item-show');
+        blogBtn.textContent = 'Hide Part';
+        window.scrollTo(blogBtn);
+      } else if (item.classList.contains('blog__item-show')) {
+        item.classList.remove('blog__item-show');
+        item.classList.add('blog__item-hide');
+        blogBtn.textContent = 'More View';
+        window.scrollTo(blogBtn);
+      }
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (blog);
+
+/***/ }),
+
+/***/ "./src/js/contacts.js":
+/*!****************************!*\
+  !*** ./src/js/contacts.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function contacts() {
+  const wrapper = document.querySelector('.contacts__wrapper');
+  wrapper.style.opacity = '0';
+  wrapper.style.transition = '0.8s all';
+  window.addEventListener('scroll', () => {
+    if (window.scrollY >= 8400) {
+      wrapper.style.opacity = '1';
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (contacts);
+
+/***/ }),
+
 /***/ "./src/js/header.js":
 /*!**************************!*\
   !*** ./src/js/header.js ***!
@@ -168,11 +236,19 @@ function header() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _about__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./about */ "./src/js/about.js");
-/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./header */ "./src/js/header.js");
-/* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./price */ "./src/js/price.js");
-/* harmony import */ var _promo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./promo */ "./src/js/promo.js");
-/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./services */ "./src/js/services.js");
-/* harmony import */ var _works__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./works */ "./src/js/works.js");
+/* harmony import */ var _blog__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blog */ "./src/js/blog.js");
+/* harmony import */ var _contacts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./contacts */ "./src/js/contacts.js");
+/* harmony import */ var _header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header */ "./src/js/header.js");
+/* harmony import */ var _modal__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modal */ "./src/js/modal.js");
+/* harmony import */ var _price__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./price */ "./src/js/price.js");
+/* harmony import */ var _promo__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./promo */ "./src/js/promo.js");
+/* harmony import */ var _services__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./services */ "./src/js/services.js");
+/* harmony import */ var _team__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./team */ "./src/js/team.js");
+/* harmony import */ var _works__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./works */ "./src/js/works.js");
+
+
+
+
 
 
 
@@ -180,13 +256,60 @@ __webpack_require__.r(__webpack_exports__);
 
 
 window.addEventListener('DOMContentLoaded', () => {
-  Object(_header__WEBPACK_IMPORTED_MODULE_1__["default"])();
-  Object(_promo__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_header__WEBPACK_IMPORTED_MODULE_3__["default"])();
+  Object(_promo__WEBPACK_IMPORTED_MODULE_6__["default"])();
   Object(_about__WEBPACK_IMPORTED_MODULE_0__["default"])();
-  Object(_services__WEBPACK_IMPORTED_MODULE_4__["default"])();
-  Object(_works__WEBPACK_IMPORTED_MODULE_5__["default"])();
-  Object(_price__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_services__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  Object(_works__WEBPACK_IMPORTED_MODULE_9__["default"])();
+  Object(_price__WEBPACK_IMPORTED_MODULE_5__["default"])();
+  Object(_team__WEBPACK_IMPORTED_MODULE_8__["default"])();
+  Object(_blog__WEBPACK_IMPORTED_MODULE_1__["default"])();
+  Object(_contacts__WEBPACK_IMPORTED_MODULE_2__["default"])();
+  Object(_modal__WEBPACK_IMPORTED_MODULE_4__["default"])();
 });
+
+/***/ }),
+
+/***/ "./src/js/modal.js":
+/*!*************************!*\
+  !*** ./src/js/modal.js ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function modal() {
+  const submitBtn = document.querySelector('.contacts__submit'),
+        modal = document.querySelector('.modal'),
+        modalClose = document.querySelector('.modal__close'),
+        form = document.querySelector('.contacts__form');
+
+  function showModal() {
+    modal.classList.add('modal_active', 'animate__animated', 'animate__fadeIn');
+  }
+
+  function closeModal() {
+    modal.classList.remove('modal_active', 'animate__animated', 'animate__fadeIn');
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    showModal();
+  });
+  modalClose.addEventListener('click', () => {
+    closeModal();
+    form.reset();
+  });
+  modal.addEventListener('click', e => {
+    if (e.target === modal) {
+      closeModal();
+      form.reset();
+    }
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (modal);
 
 /***/ }),
 
@@ -308,6 +431,52 @@ function services() {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (services);
+
+/***/ }),
+
+/***/ "./src/js/team.js":
+/*!************************!*\
+  !*** ./src/js/team.js ***!
+  \************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function teamSlider() {
+  const slides = document.querySelectorAll('.team__slide'),
+        slidesWrapper = document.querySelector('.team__wrapper'),
+        slidesInner = document.querySelector('.team__inner'),
+        width = window.getComputedStyle(slidesWrapper).width,
+        dots = document.querySelectorAll('.team__dots-item');
+  let offset = 0,
+      slideCount = slides.length;
+  slidesInner.style.width = 100 * slideCount + '%';
+  slidesWrapper.style.overflow = 'hidden';
+  slides.forEach(slide => {
+    slide.style.width = width;
+  });
+
+  function dotsActiveClass() {
+    let i = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    dots.forEach(dot => {
+      dot.classList.remove('team__dots-item_active');
+    });
+    dots[i].classList.add('team__dots-item_active');
+  }
+
+  dotsActiveClass();
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', e => {
+      const slideTo = e.target.getAttribute('data-slide');
+      offset = +width.replace(/\D/g, '') * (slideTo - 1);
+      slidesInner.style.transform = `translateX(-${offset}px)`;
+      dotsActiveClass(i);
+    });
+  });
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (teamSlider);
 
 /***/ }),
 

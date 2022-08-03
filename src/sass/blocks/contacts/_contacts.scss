@@ -25,6 +25,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: 0.2s all;
+            &:hover {
+                font-size: 58px;
+            }
         }
         &-descr {
             margin-top: 39px;

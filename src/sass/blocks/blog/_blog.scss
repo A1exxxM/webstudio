@@ -21,6 +21,9 @@
                 object-fit: contain;
             }
         }
+        &-hide {
+            display: none;
+        }
         &-reverse {
             flex-direction: row-reverse;
         }

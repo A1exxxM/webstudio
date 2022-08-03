@@ -7,7 +7,20 @@
         justify-content: space-between;
         align-items: center;
     }
+    &__slide {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row;
+    }
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 1.5s all;
+    }
     &__item {
+        width: 370px;
         &-photo {
             border-radius: 10px;
             width: 370px;
@@ -73,6 +86,12 @@
             background-color: #00897b;
             border-radius: 100%;
             cursor: pointer;
+            transition: 0.5s all;
+            &_active {
+                background-color: #3949ab;
+                width: 17px;
+                height: 17px;
+            }
         }
     }
 }

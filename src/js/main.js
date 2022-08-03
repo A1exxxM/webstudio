@@ -1,8 +1,12 @@
 import about from './about';
+import blog from './blog';
+import contacts from './contacts';
 import header from './header';
+import modal from './modal';
 import price from './price';
 import promo from './promo';
 import services from './services';
+import teamSlider from './team';
 import worksTab from './works';
 window.addEventListener('DOMContentLoaded', ()=>{
     header();
@@ -11,4 +15,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
     services();
     worksTab();
     price();
+    teamSlider();
+    blog();
+    contacts();
+    modal();
 });
