@@ -1,0 +1,104 @@
+@media (max-width: 1200px) {
+    .team {
+        min-height: 1000px;
+        padding: 100px 0;
+        &__item {
+            width: 310px;
+            &-photo {
+                width: 310px;
+                height: 320px;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .team {
+        min-height: 870px;
+        padding: 80px 0;
+        &__wrapper {
+            margin-top: 70px;
+        }
+        &__dots {
+            margin-top: 70px;
+        }
+        &__item {
+            width: 230px;
+            &-photo {
+                width: 230px;
+                height: 320px;
+            }
+            &-socials {
+                width: 200px;
+            }
+            &-social {
+                width: 40px;
+                height: 40px;
+                font-size: 22px;
+            }
+            &-name {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .team {
+        min-height: 800px;
+        padding: 60px 0;
+        &__item {
+            width: 170px;
+            &-photo {
+                width: 170px;
+                height: 170px;
+            }
+            &-socials {
+                width: 150px;
+                flex-wrap: wrap;
+            }
+            &-social {
+                width: 52px;
+                height: 52px;
+                font-size: 25px;
+                margin-bottom: 10px;
+            }
+            &-name {
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .team {
+        min-height: 730px;
+        &__title {
+            line-height: 30px;
+        }
+        &__item {
+            width: 90px;
+            &-photo {
+                width: 90px;
+                height: 90px;
+            }
+            &-socials {
+                width: 80px;
+                flex-wrap: wrap;
+            }
+            &-social {
+                width: 35px;
+                height: 35px;
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+            &-name {
+                font-size: 16px;
+            }
+        }
+    }
+}
