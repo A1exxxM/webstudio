@@ -7,7 +7,7 @@ function services() {
             e.target.classList.add('services__item-btn_active');
             imgPhone.forEach(img => {
                 if(e.target.parentNode.contains(img)) {
-                    img.src = 'icons/smartphone.png';
+                    img.src = 'icons/smartphone.webp';
                 }
             });
         });
@@ -16,7 +16,7 @@ function services() {
             e.target.classList.remove('services__item-btn_active');
             imgPhone.forEach(img => {
                 if(e.target.parentNode.contains(img)) {
-                    img.src = 'icons/smartphone_main.png';
+                    img.src = 'icons/smartphone_main.webp';
                 }
             });
         });
