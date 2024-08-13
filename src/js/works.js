@@ -53,11 +53,16 @@ function worksTab() {
             }
             block.append(titleBlock);
             block.append(subtitleBlock);
-            e.target.parentNode.append(block);
+            if (e.target.nodeName == 'IMG') {
+                e.target.parentNode.appendChild(block);
+            }
         });
-        item.addEventListener('mouseout', (e)=>{
+        item.addEventListener('mouseleave', (e)=>{
             block.classList.remove('works__block');
-            e.target.parentNode.removeChild(block);
+            if (e.target.classList.contains('works__item')) {
+                e.target.removeChild(block);
+            }
+            
         });
     });
 
